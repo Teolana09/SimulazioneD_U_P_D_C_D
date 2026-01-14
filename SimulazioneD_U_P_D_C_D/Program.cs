@@ -39,7 +39,10 @@
         {
             for (int i = 0; i < squadra.Length; i++)
             {
-                if (squadra[i] > 0) squadra[i] += puntiDaAggiungere;
+                if (squadra[i] > 0)
+                {
+                    squadra[i] += puntiDaAggiungere;
+                }
             }
         }
 
@@ -139,7 +142,10 @@
                             punteggioFinaleB++;
                             incremetoPuntiGiocatore(squadraB, 3);
                         }
-                        if (minuti == 89) recupero = random.Next(1, 5);
+                        if (minuti == 89)
+                        {
+                            recupero = random.Next(1, 5);
+                        }
                     }
                     else if (eventi <= 25)
                     {
@@ -198,7 +204,7 @@
                         }
                     }
                 }
-                // Modifica richiesta: se NON succede niente
+                
                 else
                 {
                     Console.WriteLine("AL MINUTO " + (minuti + 1) + " NON E' SUCCESSO NIENTE");
