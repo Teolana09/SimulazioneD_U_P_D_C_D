@@ -19,10 +19,26 @@
                 }
             }
         }
+        static void RossoDiretto(int[] squadra, string nomeSquadra)
+        {
+            Random random = new Random();
+            // Scegliamo un giocatore a caso tra gli 11
+            int giocatoreScelto = random.Next(0, 11);
 
+            // Controlliamo che non sia già fuori (potenza già a 0)
+            if (squadra[giocatoreScelto] > 0)
+            {
+                squadra[giocatoreScelto] = 0; // Il giocatore viene rimosso dal gioco
+                Console.WriteLine("!!! FALLACCIO !!!");
+                Console.WriteLine("ROSSO DIRETTO per il giocatore " + giocatoreScelto + " della SQUADRA " + nomeSquadra);
+            }
+        }
         static void Sostituzioni(int[] squadra, int[] panchinari, ref int contatoreCambi)
         {
-            if (contatoreCambi >= 5) return;
+            if (contatoreCambi >= 5)
+            {
+                return;
+            }
 
             Random random = new Random();
             int posizioneTitolare = random.Next(0, 11);
@@ -122,7 +138,7 @@
 
                 int eventoNullo = random.Next(0, 100);
 
-                // Se succede qualcosa (50% probabilità)
+                // Se succede qualcosa 
                 if (eventoNullo < 50)
                 {
                     eventi = random.Next(0, 100);
@@ -188,9 +204,20 @@
                             Sostituzioni(squadraB, panchinariB, ref cambiB);
                         }
                     }
-                    else
+                    else if (eventi == 1 )
                     {
                         if (random.Next(0, 2) == 0)
+                        {
+                            RossoDiretto(squadraA, "A");
+                        }
+                        else
+                        {
+                            RossoDiretto(squadraB, "B");
+                        }
+                    }
+                    else
+                    {
+                        if (random.Next(0, 2) == 0)// se succede un calo di punti
                         {
                             Console.WriteLine("MINUTO " + (minuti + 1));
                             Console.WriteLine("CALO PUNTI PER LA SQUADRA A");
@@ -203,8 +230,7 @@
                             CaloPuntiGiocatore(squadraB, 15);
                         }
                     }
-                }
-                
+                }               
                 else
                 {
                     Console.WriteLine("AL MINUTO " + (minuti + 1) + " NON E' SUCCESSO NIENTE");
