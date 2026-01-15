@@ -2,8 +2,7 @@
 {
     internal class Program
     {
-        static int cambiA = 0;
-        static int cambiB = 0;
+        
 
         static void CaloPuntiGiocatore(int[] squadra, int puntiDaSottrarre)
         {
@@ -37,7 +36,7 @@
         {
             if (contatoreCambi >= 5)
             {
-                return;
+                Console.WriteLine("Non sono più possibili sostituzioni");
             }
 
             Random random = new Random();
@@ -110,6 +109,7 @@
         {
             int[] squadraA = new int[11], squadraB = new int[11], panchinariA = new int[5], panchinariB = new int[5];
             int[] ammonizioniA = new int[11], ammonizioniB = new int[11];
+            int cambiA = 0, cambiB = 0;
 
             Console.WriteLine("SQUADRA 1");
             ValorizzazioneTitolari(squadraA);
