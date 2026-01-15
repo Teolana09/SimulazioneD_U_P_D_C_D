@@ -89,21 +89,18 @@
             }
         }
 
-        static void stampaGiocatori(int[] squadra)
+        static void stampaGiocatori(int[] squadra, int[] panchinari)
         {
             for (int i = 0; i < squadra.Length; i++)
             {
                 Console.WriteLine("il giocatore " + i + " ha come punteggio " + squadra[i]);
             }
-        }
-
-        static void stampaGiocatoriPanchinari(int[] panchinari)
-        {
             for (int i = 0; i < panchinari.Length; i++)
             {
                 Console.WriteLine("il giocatore in panchina " + i + " ha come punteggio " + panchinari[i]);
             }
         }
+      
 
         static void Main(string[] args)
         {
@@ -114,14 +111,13 @@
             Console.WriteLine("SQUADRA 1");
             ValorizzazioneTitolari(squadraA);
             ValorizzazionePanchinari(panchinariA);
-            stampaGiocatori(squadraA);
-            stampaGiocatoriPanchinari(panchinariA);
+            stampaGiocatori(squadraA, panchinariA);
+            
 
             Console.WriteLine("SQUADRA 2");
             ValorizzazioneTitolari(squadraB);
             ValorizzazionePanchinari(panchinariB);
-            stampaGiocatori(squadraB);
-            stampaGiocatoriPanchinari(panchinariB);
+            stampaGiocatori(squadraB, panchinariB);            
 
             int golSquadra = 0;
             int punteggioFinaleA = 0;
